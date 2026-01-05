@@ -1,0 +1,59 @@
+/* resources/css/admin.css */
+
+#selectedMediaPreview .media-preview-item {
+    position: relative;
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    width: 80px;
+    text-align: center;
+    cursor: grab !important;
+    touch-action: none;
+}
+
+#selectedMediaPreview .media-preview-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#selectedMediaPreview .media-preview-item .remove-btn {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    line-height: 18px;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    z-index: 10;
+}
+
+#mediaItemsList .media-item {
+    transition: transform 0.2s;
+}
+
+#mediaItemsList .media-item:hover {
+    transform: scale(1.05);
+}
+
+#mediaItemsList .media-item.selected {
+    border: 3px solid #007bff;
+}
+
+#selectedMediaPreview .media-preview-item.sortable-chosen {
+    opacity: 0.5;
+}
+
+#selectedMediaPreview,
+#mediaItemsList {
+    overflow: visible !important;
+}

@@ -1,0 +1,281 @@
+/* ========================================
+   Base Styles - Typography, Spacing, Colors
+   ======================================== */
+
+/* Modern Typography */
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+/* Dashboard spacing */
+.content-wrapper {
+    padding: 20px;
+    background-color: #f9fafb;
+}
+
+.content-header {
+    padding: 15px 0;
+    margin-bottom: 20px;
+}
+
+.content-header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #374151;
+}
+
+/* Sidebar Container - Elegant Gradient */
+.main-sidebar {
+    background: linear-gradient(180deg, #667eea 0%, #764ba2 100%) !important;
+    box-shadow: 4px 0 30px rgba(102, 126, 234, 0.25);
+    position: relative;
+}
+
+.main-sidebar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
+    pointer-events: none;
+}
+
+.sidebar {
+    background: transparent;
+    position: relative;
+    z-index: 1;
+}
+
+/* Base Navigation Links - Refined Typography */
+.main-sidebar .nav-link,
+.sidebar .nav-link {
+    color: rgba(255, 255, 255, 0.9) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 12px;
+    margin: 4px 10px;
+    padding: 12px 10px !important;
+    font-size: 0.9rem;
+    font-weight: 400;
+    line-height: 1.5;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Icons in Light Mode Sidebar - White with slight opacity */
+.main-sidebar .nav-link > i,
+.sidebar .nav-link > i {
+    color: rgba(255, 255, 255, 0.95) !important;
+}
+
+/* Active Icons in Light Mode Sidebar */
+.main-sidebar .nav-link.active > i,
+.sidebar .nav-link.active > i,
+.main-sidebar .nav-treeview .nav-link.active > i,
+.sidebar .nav-treeview .nav-link.active > i {
+    color: rgba(255, 255, 255, 1) !important;
+}
+
+/* Parent Menu Items (Groups) - Premium Visual Hierarchy */
+.main-sidebar .nav-link:has(+ .nav-treeview),
+.main-sidebar .nav-link.has-treeview,
+.sidebar .nav-link:has(+ .nav-treeview),
+.sidebar .nav-link.has-treeview {
+    font-weight: 400 !important;
+    font-size: 0.9rem !important;
+    color: rgba(255, 255, 255, 1) !important;
+    background: rgba(255, 255, 255, 0.12) !important;
+    padding-left: 10px !important;
+    margin-top: 12px;
+    margin-bottom: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+/* First group - no top margin */
+.main-sidebar .nav-item:first-child .nav-link:has(+ .nav-treeview),
+.main-sidebar .nav-item:first-child .nav-link.has-treeview,
+.sidebar .nav-item:first-child .nav-link:has(+ .nav-treeview),
+.sidebar .nav-item:first-child .nav-link.has-treeview {
+    margin-top: 0;
+}
+
+/* Icon in Parent Items - Same as regular items */
+.main-sidebar .nav-link:has(+ .nav-treeview) > i:first-of-type,
+.main-sidebar .nav-link.has-treeview > i:first-of-type,
+.sidebar .nav-link:has(+ .nav-treeview) > i:first-of-type,
+.sidebar .nav-link.has-treeview > i:first-of-type {
+    font-size: inherit !important;
+    margin-right: 10px !important;
+    opacity: 1 !important;
+}
+
+/* Dropdown Arrow - Perfectly Aligned & Animated */
+.main-sidebar .nav-link p > i.fa-angle-left.right,
+.main-sidebar .nav-link.has-treeview p > i.fa-angle-left.right,
+.sidebar .nav-link p > i.fa-angle-left.right,
+.sidebar .nav-link.has-treeview p > i.fa-angle-left.right {
+    float: right;
+    margin-top: 3px;
+    font-size: 0.875rem !important;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+    opacity: 0.8;
+    line-height: 1.5;
+}
+
+/* Rotated Arrow when Open - Smooth Animation */
+.main-sidebar .menu-open > .nav-link p > i.fa-angle-left.right,
+.sidebar .menu-open > .nav-link p > i.fa-angle-left.right {
+    transform: rotate(-90deg);
+    opacity: 1;
+}
+
+/* Child Menu Items (Subgroups) - Refined & Elegant */
+.main-sidebar .nav-treeview .nav-link,
+.sidebar .nav-treeview .nav-link {
+    font-weight: 400 !important;
+    font-size: 0.875rem !important;
+    padding-left: 16px !important;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    color: rgba(255, 255, 255, 0.8) !important;
+    background: rgba(255, 255, 255, 0.06) !important;
+    border-radius: 10px;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Icons in Child Items - Subtle Enhancement */
+.main-sidebar .nav-treeview .nav-link > i,
+.sidebar .nav-treeview .nav-link > i {
+    font-size: 0.875rem !important;
+    margin-right: 10px !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+    opacity: 0.85 !important;
+    transition: opacity 0.25s ease;
+}
+
+/* Enhanced Hover States - Premium Feel */
+.main-sidebar .nav-link:hover,
+.sidebar .nav-link:hover {
+    background: rgba(255, 255, 255, 0.18) !important;
+    color: white !important;
+    transform: translateX(4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Parent Item Hover - Premium Enhancement */
+.main-sidebar .nav-link:has(+ .nav-treeview):hover,
+.main-sidebar .nav-link.has-treeview:hover,
+.sidebar .nav-link:has(+ .nav-treeview):hover,
+.sidebar .nav-link.has-treeview:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    transform: translateX(4px);
+}
+
+/* Child Item Hover - Refined Interaction */
+.main-sidebar .nav-treeview .nav-link:hover,
+.sidebar .nav-treeview .nav-link:hover {
+    background: rgba(255, 255, 255, 0.12) !important;
+    color: rgba(255, 255, 255, 1) !important;
+    padding-left: 18px !important;
+    transform: translateX(3px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.main-sidebar .nav-treeview .nav-link:hover > i,
+.sidebar .nav-treeview .nav-link:hover > i {
+    opacity: 1 !important;
+}
+
+/* Active States - Premium Highlight */
+.main-sidebar .nav-link.active,
+.sidebar .nav-link.active {
+    background: rgba(255, 255, 255, 0.25) !important;
+    color: white !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    font-weight: 500;
+}
+
+/* Active Child Items - Refined */
+.main-sidebar .nav-treeview .nav-link.active,
+.sidebar .nav-treeview .nav-link.active {
+    background: rgba(255, 255, 255, 0.22) !important;
+    font-weight: 500 !important;
+    color: white !important;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Menu Tree Container - Smooth Animation */
+.main-sidebar .nav-treeview,
+.sidebar .nav-treeview {
+    margin-top: 6px;
+    margin-bottom: 12px;
+    padding-left: 0;
+    animation: slideDownFade 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideDownFade {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Spacing Between Menu Items - Refined */
+.main-sidebar .nav-item:not(:last-child),
+.sidebar .nav-item:not(:last-child) {
+    margin-bottom: 2px;
+}
+
+/* Badge Styling - Premium Look */
+.main-sidebar .nav-link .badge,
+.sidebar .nav-link .badge {
+    font-size: 0.75rem;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-weight: 700;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    margin-left: 8px;
+}
+
+/* Text in nav-link paragraphs */
+.main-sidebar .nav-link p,
+.sidebar .nav-link p {
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Focus States for Accessibility */
+.main-sidebar .nav-link:focus,
+.sidebar .nav-link:focus {
+    outline: 2px solid rgba(255, 255, 255, 0.6);
+    outline-offset: 2px;
+    border-radius: 12px;
+}
+
+/* Professional Color Palette */
+:root {
+    --primary: #3B82F6;
+    --primary-dark: #1D4ED8;
+    --success: #10B981;
+    --warning: #F59E0B;
+    --danger: #EF4444;
+    --info: #06B6D4;
+    --light: #F8FAFC;
+    --dark: #1F2937;
+    --gray: #6B7280;
+}
+

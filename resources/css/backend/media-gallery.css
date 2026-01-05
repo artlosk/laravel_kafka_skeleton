@@ -1,0 +1,34 @@
+/* resources/css/media-gallery.css */
+@import 'https://unpkg.com/filepond/dist/filepond.css';
+@import 'https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css';
+@import 'https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css';
+
+.media-gallery-widget .media-preview-item {
+    position: relative;
+}
+
+.media-gallery-widget .remove-btn {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: red;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    cursor: pointer;
+}
+
+.media-gallery-widget .media-item.selected {
+    background-color: #e3f2fd;
+}
+
+.media-gallery-widget .sortable-ghost {
+    opacity: 0.4;
+}
+
+.media-gallery-widget .sortable-chosen {
+    background-color: #f0f0f0;
+}

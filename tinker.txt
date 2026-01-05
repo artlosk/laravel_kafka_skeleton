@@ -1,0 +1,55 @@
+use App\Models\User;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
+
+// Создание разрешений
+Permission::firstOrCreate(['name' => 'manage-users']);
+Permission::firstOrCreate(['name' => 'manage-roles']);
+Permission::firstOrCreate(['name' => 'manage-permissions']);
+Permission::firstOrCreate(['name' => 'access-admin-panel']);
+Permission::firstOrCreate(['name' => 'read-posts']);
+Permission::firstOrCreate(['name' => 'create-posts']);
+Permission::firstOrCreate(['name' => 'edit-posts']);
+Permission::firstOrCreate(['name' => 'delete-posts']);
+
+// Создание роли admin
+$adminRole = Role::firstOrCreate(['name' => 'admin']);
+$adminRole->syncPermissions([
+    'manage-users',
+    'manage-roles',
+    'manage-permissions',
+    'access-admin-panel',
+    'read-posts',
+    'create-posts',
+    'edit-posts',
+    'delete-posts',
+]);
+
+// Создание роли user
+$userRole = Role::firstOrCreate(['name' => 'user']);
+
+// Создание администратора
+$admin = User::firstOrCreate([
+    'email' => 'admin@example.com',
+], [
+    'name' => 'Admin',
+    'password' => bcrypt('password'),
+]);
+$admin->assignRole('admin');
+
+// Создание обычного пользователя
+$user = User::firstOrCreate([
+    'email' => 'user@example.com',
+], [
+    'name' => 'User',
+    'password' => bcrypt('password'),
+]);
+$user->assignRole('user');
+$user->syncPermissions(['read-posts']);
+
+// Проверка
+$admin->getAllPermissions()->pluck('name');
+$user->getAllPermissions()->pluck('name');
+$user->getRoleNames();
+
+exit

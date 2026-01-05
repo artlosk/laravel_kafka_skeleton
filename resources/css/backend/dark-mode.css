@@ -1,0 +1,812 @@
+/* ========================================
+   Dark Mode Styles
+   ======================================== */
+
+/* Base Dark Mode */
+.dark-mode,
+.dark-mode html {
+    background-color: #111827;
+    color: #f9fafb;
+}
+
+.dark-mode body {
+    background-color: #111827;
+    color: #f9fafb;
+}
+
+.dark-mode .wrapper {
+    background-color: #111827;
+}
+
+.dark-mode .content-wrapper {
+    background-color: #111827;
+}
+
+.dark-mode .content-header h1 {
+    color: #f9fafb;
+}
+
+.dark-mode .content-header {
+    color: #f9fafb;
+}
+
+/* Dark Mode Cards */
+.dark-mode .card:not(.bg-primary):not(.bg-success):not(.bg-info):not(.bg-warning):not(.bg-danger):not(.bg-secondary) {
+    background: #1f2937;
+    color: #f9fafb;
+    border: 1px solid #374151;
+}
+
+.dark-mode .card-header:not(.bg-primary):not(.bg-success):not(.bg-info):not(.bg-warning):not(.bg-danger):not(.bg-secondary) {
+    background: linear-gradient(135deg, #374151 0%, #4b5563 100%) !important;
+    border-bottom: 1px solid #4b5563 !important;
+    color: #f9fafb !important;
+}
+
+/* Colored card headers in dark mode - keep transparent or match card color */
+.dark-mode .card.bg-primary .card-header,
+.dark-mode .card.bg-success .card-header,
+.dark-mode .card.bg-info .card-header,
+.dark-mode .card.bg-warning .card-header,
+.dark-mode .card.bg-danger .card-header,
+.dark-mode .row .card.bg-primary .card-header,
+.dark-mode .row .card.bg-success .card-header,
+.dark-mode .row .card.bg-info .card-header,
+.dark-mode .row .card.bg-warning .card-header {
+    background: transparent !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+    color: #fff !important;
+}
+
+.dark-mode .card-header .card-title {
+    color: #f9fafb !important;
+}
+
+.dark-mode .card-header .card-title h3 {
+    color: #f9fafb !important;
+}
+
+/* Colored card header title in dark mode */
+.dark-mode .card.bg-primary .card-header .card-title,
+.dark-mode .card.bg-primary .card-header .card-title h3,
+.dark-mode .card.bg-success .card-header .card-title,
+.dark-mode .card.bg-success .card-header .card-title h3,
+.dark-mode .card.bg-info .card-header .card-title,
+.dark-mode .card.bg-info .card-header .card-title h3,
+.dark-mode .card.bg-warning .card-header .card-title,
+.dark-mode .card.bg-warning .card-header .card-title h3,
+.dark-mode .row .card.bg-primary .card-header .card-title,
+.dark-mode .row .card.bg-primary .card-header .card-title h3,
+.dark-mode .row .card.bg-success .card-header .card-title,
+.dark-mode .row .card.bg-success .card-header .card-title h3,
+.dark-mode .row .card.bg-info .card-header .card-title,
+.dark-mode .row .card.bg-info .card-header .card-title h3,
+.dark-mode .row .card.bg-warning .card-header .card-title,
+.dark-mode .row .card.bg-warning .card-header .card-title h3 {
+    color: #fff !important;
+}
+
+.dark-mode .card-body:not(.bg-primary):not(.bg-success):not(.bg-info):not(.bg-warning):not(.bg-danger):not(.bg-secondary) {
+    background: #1f2937;
+    color: #f9fafb;
+}
+
+/* Colored card body in dark mode - keep transparent to show card background */
+.dark-mode .card.bg-primary .card-body,
+.dark-mode .card.bg-success .card-body,
+.dark-mode .card.bg-info .card-body,
+.dark-mode .card.bg-warning .card-body,
+.dark-mode .card.bg-danger .card-body,
+.dark-mode .row .card.bg-primary .card-body,
+.dark-mode .row .card.bg-success .card-body,
+.dark-mode .row .card.bg-info .card-body,
+.dark-mode .row .card.bg-warning .card-body,
+.dark-mode .row .col-md-3 .card.bg-primary .card-body,
+.dark-mode .row .col-md-3 .card.bg-success .card-body,
+.dark-mode .row .col-md-3 .card.bg-info .card-body,
+.dark-mode .row .col-md-3 .card.bg-warning .card-body,
+.dark-mode .row .col-md-4 .card.bg-primary .card-body,
+.dark-mode .row .col-md-4 .card.bg-success .card-body,
+.dark-mode .row .col-md-4 .card.bg-info .card-body,
+.dark-mode .row .col-md-4 .card.bg-warning .card-body {
+    background: transparent !important;
+}
+
+/* Dark Mode Tables */
+.dark-mode .table {
+    background: #1f2937;
+    color: #f9fafb;
+}
+
+.dark-mode .table thead th {
+    background: linear-gradient(135deg, #374151 0%, #4b5563 100%) !important;
+    color: #f9fafb !important;
+    border-bottom: 1px solid #4b5563 !important;
+}
+
+.dark-mode .table tbody tr {
+    border-bottom: 1px solid #374151;
+}
+
+.dark-mode .table tbody tr:hover {
+    background: rgba(59, 130, 246, 0.1) !important;
+}
+
+.dark-mode .table td,
+.dark-mode .table th {
+    color: #f9fafb !important;
+}
+
+/* Dark Mode Table Light - Normal Row Color (Not White) */
+.dark-mode .table .table-light,
+.dark-mode .table-light {
+    background-color: transparent !important;
+}
+
+.dark-mode .table .table-light td,
+.dark-mode .table .table-light th,
+.dark-mode .table-light td,
+.dark-mode .table-light th {
+    background-color: transparent !important;
+    color: #f9fafb !important;
+}
+
+.dark-mode .table .table-light:hover,
+.dark-mode .table-light:hover {
+    background-color: rgba(59, 130, 246, 0.1) !important;
+}
+
+/* Dark Mode Table Success - Modern Green Accent */
+.dark-mode .table .table-success,
+.dark-mode .table-success {
+    background-color: rgba(34, 197, 94, 0.15) !important;
+    border-left: 3px solid #22c55e !important;
+    color: #f9fafb !important;
+}
+
+.dark-mode .table .table-success td,
+.dark-mode .table .table-success th,
+.dark-mode .table-success td,
+.dark-mode .table-success th {
+    background-color: rgba(34, 197, 94, 0.15) !important;
+    color: #f9fafb !important;
+    border-color: rgba(34, 197, 94, 0.25) !important;
+}
+
+.dark-mode .table .table-success:hover,
+.dark-mode .table-success:hover {
+    background-color: rgba(34, 197, 94, 0.22) !important;
+}
+
+.dark-mode .table .table-success a,
+.dark-mode .table-success a {
+    color: #86efac !important;
+    text-decoration: none;
+}
+
+.dark-mode .table .table-success a:hover,
+.dark-mode .table-success a:hover {
+    color: #4ade80 !important;
+    text-decoration: underline;
+}
+
+/* Dark Mode Table Links */
+.dark-mode .table a {
+    color: #93c5fd !important;
+}
+
+.dark-mode .table a:hover {
+    color: #60a5fa !important;
+}
+
+/* Light Mode Table Links */
+.table a {
+    color: #2563eb;
+}
+
+.table a:hover {
+    color: #1d4ed8;
+}
+
+/* Dark Mode Forms */
+.dark-mode .form-control {
+    background: #374151;
+    border-color: #4b5563;
+    color: #f9fafb;
+}
+
+.dark-mode .form-control:focus {
+    background: #374151;
+    border-color: #3B82F6;
+    color: #f9fafb;
+}
+
+.dark-mode input[type="date"].form-control,
+.dark-mode input[type="date"] {
+    background-color: #374151 !important;
+    color: #f9fafb !important;
+    border-color: #4b5563 !important;
+}
+
+.dark-mode input[type="date"].form-control:focus,
+.dark-mode input[type="date"]:focus {
+    background-color: #374151 !important;
+    color: #f9fafb !important;
+    border-color: #3B82F6 !important;
+}
+
+.dark-mode input[type="date"].form-control::-webkit-calendar-picker-indicator,
+.dark-mode input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+.dark-mode select.form-control {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%239ca3af' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.5rem center;
+    background-size: 1.5em 1.5em;
+    padding-right: 2.5rem;
+    background-color: #374151;
+    color: #f9fafb;
+}
+
+.dark-mode select.form-control:focus {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%233B82F6' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.5rem center;
+    background-size: 1.5em 1.5em;
+    background-color: #374151 !important;
+    color: #f9fafb !important;
+}
+
+.dark-mode select.form-control,
+.dark-mode select.form-control.custom-select {
+    color: #f9fafb !important;
+    background-color: #374151 !important;
+    border-color: #4b5563 !important;
+    background-repeat: no-repeat;
+    background-position: right 0.5rem center;
+    background-size: 1.5em 1.5em;
+    padding-right: 2.5rem;
+}
+
+.dark-mode select.form-control option,
+.dark-mode select.form-control.custom-select option {
+    color: #f9fafb !important;
+    background-color: #374151 !important;
+}
+
+/* Dark Mode Alerts */
+.dark-mode .alert {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .alert-success {
+    background: linear-gradient(135deg, #064e3b 0%, #065f46 100%);
+    color: #a7f3d0;
+    border: 1px solid rgba(167, 243, 208, 0.2);
+}
+
+.dark-mode .alert-danger {
+    background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 100%);
+    color: #fecaca;
+    border: 1px solid rgba(254, 202, 202, 0.2);
+}
+
+.dark-mode .alert-info {
+    background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+    color: #bfdbfe;
+    border: 1px solid rgba(191, 219, 254, 0.2);
+}
+
+.dark-mode .alert-warning {
+    background: linear-gradient(135deg, #78350f 0%, #92400e 100%);
+    color: #fde68a;
+    border: 1px solid rgba(253, 230, 138, 0.2);
+}
+
+.dark-mode .alert-link {
+    color: #60a5fa;
+    text-decoration: underline;
+}
+
+.dark-mode .alert-link:hover {
+    color: #93c5fd;
+}
+
+.dark-mode .alert strong {
+    color: inherit;
+}
+
+/* Dark Mode Info Box */
+.dark-mode .info-box {
+    background: #1f2937;
+    border: 1px solid #374151;
+}
+
+.dark-mode .info-box-content .info-box-text {
+    color: #d1d5db;
+}
+
+.dark-mode .info-box-content .info-box-number {
+    color: #f9fafb;
+}
+
+.dark-mode .info-box-icon {
+    opacity: 0.9;
+}
+
+/* Dark Mode Text Colors */
+.dark-mode .text-muted {
+    color: #9ca3af !important;
+}
+
+.dark-mode .text-primary {
+    color: #60a5fa !important;
+}
+
+.dark-mode .text-success {
+    color: #34d399 !important;
+}
+
+.dark-mode .border-end {
+    border-color: #374151 !important;
+}
+
+.dark-mode .badge {
+    color: #f9fafb;
+}
+
+.dark-mode .badge-primary {
+    background-color: #3B82F6;
+    color: #fff;
+}
+
+.dark-mode .badge-success {
+    background-color: #10B981;
+    color: #fff;
+}
+
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode h4,
+.dark-mode h5,
+.dark-mode h6 {
+    color: #f9fafb !important;
+}
+
+.dark-mode .small {
+    color: #d1d5db !important;
+}
+
+/* Dark Mode Navbar */
+.dark-mode .navbar {
+    background-color: #1f2937 !important;
+    border-bottom: 1px solid #374151;
+}
+
+.dark-mode .navbar .navbar-nav .nav-link {
+    color: #f9fafb !important;
+}
+
+.dark-mode .navbar .navbar-nav .nav-link:hover {
+    color: #60a5fa !important;
+    background-color: rgba(59, 130, 246, 0.1);
+}
+
+.dark-mode .navbar .btn {
+    border-color: #4b5563;
+    color: #f9fafb;
+}
+
+.dark-mode .navbar .btn-outline-primary {
+    color: #60a5fa;
+    border-color: #3B82F6;
+}
+
+.dark-mode .navbar .btn-outline-primary:hover {
+    background-color: #3B82F6;
+    color: #fff;
+}
+
+.dark-mode .navbar .btn-primary {
+    background-color: #3B82F6;
+    color: #fff;
+}
+
+.dark-mode .navbar .btn-primary:hover {
+    background-color: #2563eb;
+}
+
+/* ========================================
+   Dark Mode Sidebar - Premium Enhancement
+   ======================================== */
+
+.dark-mode .main-sidebar {
+    background: linear-gradient(180deg, #1f2937 0%, #111827 100%) !important;
+    box-shadow: 4px 0 30px rgba(0, 0, 0, 0.4);
+}
+
+.dark-mode .main-sidebar::before {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, transparent 100%);
+}
+
+.dark-mode .sidebar {
+    background: transparent;
+}
+
+/* Base Links in Dark Mode */
+.dark-mode .main-sidebar .nav-link,
+.dark-mode .sidebar .nav-link {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Icons in Sidebar Dark Mode */
+.dark-mode .main-sidebar .nav-link i,
+.dark-mode .sidebar .nav-link i {
+    color: #60a5fa !important;
+}
+
+/* Active Icons in Sidebar Dark Mode */
+.dark-mode .main-sidebar .nav-link.active i,
+.dark-mode .sidebar .nav-link.active i,
+.dark-mode .main-sidebar .nav-treeview .nav-link.active i,
+.dark-mode .sidebar .nav-treeview .nav-link.active i {
+    color: #93c5fd !important;
+}
+
+/* Parent Items (Groups) in Dark Mode */
+.dark-mode .main-sidebar .nav-link:has(+ .nav-treeview),
+.dark-mode .main-sidebar .nav-link.has-treeview,
+.dark-mode .sidebar .nav-link:has(+ .nav-treeview),
+.dark-mode .sidebar .nav-link.has-treeview {
+    color: rgba(255, 255, 255, 1) !important;
+    background: rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Child Items in Dark Mode */
+.dark-mode .main-sidebar .nav-treeview .nav-link,
+.dark-mode .sidebar .nav-treeview .nav-link {
+    color: rgba(255, 255, 255, 0.8) !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Hover States in Dark Mode */
+.dark-mode .main-sidebar .nav-link:hover,
+.dark-mode .sidebar .nav-link:hover {
+    background: rgba(255, 255, 255, 0.22) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.dark-mode .main-sidebar .nav-treeview .nav-link:hover,
+.dark-mode .sidebar .nav-treeview .nav-link:hover {
+    background: rgba(255, 255, 255, 0.15) !important;
+    color: rgba(255, 255, 255, 1) !important;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .main-sidebar .nav-link:has(+ .nav-treeview):hover,
+.dark-mode .main-sidebar .nav-link.has-treeview:hover,
+.dark-mode .sidebar .nav-link:has(+ .nav-treeview):hover,
+.dark-mode .sidebar .nav-link.has-treeview:hover {
+    background: rgba(255, 255, 255, 0.25) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Active States in Dark Mode */
+.dark-mode .main-sidebar .nav-link.active,
+.dark-mode .sidebar .nav-link.active {
+    background: rgba(255, 255, 255, 0.3) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.dark-mode .main-sidebar .nav-treeview .nav-link.active,
+.dark-mode .sidebar .nav-treeview .nav-link.active {
+    background: rgba(255, 255, 255, 0.28) !important;
+    box-shadow: 0 3px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* Pagination in Dark Mode */
+.dark-mode .pagination .page-item .page-link {
+    color: #60a5fa !important;
+    background-color: #1f2937 !important;
+    border-color: #374151 !important;
+}
+
+.dark-mode .pagination .page-item .page-link:hover {
+    color: #93c5fd !important;
+    background-color: #374151 !important;
+    border-color: #4b5563 !important;
+}
+
+.dark-mode .pagination .page-item.active .page-link {
+    color: #fff !important;
+    background: linear-gradient(135deg, #3B82F6 0%, #1D4ED8 100%) !important;
+    border-color: #3B82F6 !important;
+}
+
+.dark-mode .pagination .page-item.disabled .page-link {
+    color: #6b7280 !important;
+    background-color: #1f2937 !important;
+    border-color: #374151 !important;
+    opacity: 0.5 !important;
+}
+
+/* Dark Mode Colored Cards - Keep Colors with Higher Specificity */
+.dark-mode .row .card.bg-primary,
+.dark-mode .row .col-md-3 .card.bg-primary,
+.dark-mode .row .col-md-4 .card.bg-primary,
+.dark-mode .col-md-3 .card.bg-primary,
+.dark-mode .col-md-4 .card.bg-primary,
+.dark-mode .card.bg-primary {
+    background-color: #007bff !important;
+    background-image: none !important;
+}
+
+.dark-mode .row .card.bg-success,
+.dark-mode .row .col-md-3 .card.bg-success,
+.dark-mode .row .col-md-4 .card.bg-success,
+.dark-mode .col-md-3 .card.bg-success,
+.dark-mode .col-md-4 .card.bg-success,
+.dark-mode .card.bg-success {
+    background-color: #28a745 !important;
+    background-image: none !important;
+}
+
+.dark-mode .row .card.bg-info,
+.dark-mode .row .col-md-3 .card.bg-info,
+.dark-mode .row .col-md-4 .card.bg-info,
+.dark-mode .col-md-3 .card.bg-info,
+.dark-mode .col-md-4 .card.bg-info,
+.dark-mode .card.bg-info {
+    background-color: #17a2b8 !important;
+    background-image: none !important;
+}
+
+.dark-mode .card.bg-warning,
+.dark-mode .row .card.bg-warning,
+.dark-mode .col-md-3 .card.bg-warning,
+.dark-mode .col-md-4 .card.bg-warning {
+    background-color: #ffc107 !important;
+}
+
+.dark-mode .card.bg-danger,
+.dark-mode .row .card.bg-danger,
+.dark-mode .col-md-3 .card.bg-danger,
+.dark-mode .col-md-4 .card.bg-danger {
+    background-color: #dc3545 !important;
+}
+
+.dark-mode .card.bg-secondary,
+.dark-mode .row .card.bg-secondary,
+.dark-mode .col-md-3 .card.bg-secondary,
+.dark-mode .col-md-4 .card.bg-secondary {
+    background-color: #6c757d !important;
+}
+
+.dark-mode .row .card.bg-primary.text-white,
+.dark-mode .row .card.bg-success.text-white,
+.dark-mode .row .card.bg-info.text-white,
+.dark-mode .row .card.bg-warning.text-white,
+.dark-mode .row .col-md-3 .card.bg-primary.text-white,
+.dark-mode .row .col-md-3 .card.bg-success.text-white,
+.dark-mode .row .col-md-3 .card.bg-info.text-white,
+.dark-mode .row .col-md-3 .card.bg-warning.text-white,
+.dark-mode .row .col-md-4 .card.bg-primary.text-white,
+.dark-mode .row .col-md-4 .card.bg-success.text-white,
+.dark-mode .row .col-md-4 .card.bg-info.text-white,
+.dark-mode .row .col-md-4 .card.bg-warning.text-white,
+.dark-mode .card.bg-primary.text-white,
+.dark-mode .card.bg-success.text-white,
+.dark-mode .card.bg-info.text-white,
+.dark-mode .card.bg-warning.text-white,
+.dark-mode .card.bg-danger.text-white,
+.dark-mode .card.bg-secondary.text-white {
+    color: #fff !important;
+}
+
+.dark-mode .row .card.bg-primary h1,
+.dark-mode .row .card.bg-primary h2,
+.dark-mode .row .card.bg-primary h3,
+.dark-mode .row .card.bg-primary h4,
+.dark-mode .row .card.bg-primary h5,
+.dark-mode .row .card.bg-primary h6,
+.dark-mode .row .card.bg-success h1,
+.dark-mode .row .card.bg-success h2,
+.dark-mode .row .card.bg-success h3,
+.dark-mode .row .card.bg-success h4,
+.dark-mode .row .card.bg-success h5,
+.dark-mode .row .card.bg-success h6,
+.dark-mode .row .card.bg-info h1,
+.dark-mode .row .card.bg-info h2,
+.dark-mode .row .card.bg-info h3,
+.dark-mode .row .card.bg-info h4,
+.dark-mode .row .card.bg-info h5,
+.dark-mode .row .card.bg-info h6,
+.dark-mode .row .card.bg-warning h1,
+.dark-mode .row .card.bg-warning h2,
+.dark-mode .row .card.bg-warning h3,
+.dark-mode .row .card.bg-warning h4,
+.dark-mode .row .card.bg-warning h5,
+.dark-mode .row .card.bg-warning h6,
+.dark-mode .row .col-md-3 .card.bg-primary h1,
+.dark-mode .row .col-md-3 .card.bg-primary h2,
+.dark-mode .row .col-md-3 .card.bg-primary h3,
+.dark-mode .row .col-md-3 .card.bg-primary h4,
+.dark-mode .row .col-md-3 .card.bg-primary h5,
+.dark-mode .row .col-md-3 .card.bg-primary h6,
+.dark-mode .row .col-md-3 .card.bg-success h1,
+.dark-mode .row .col-md-3 .card.bg-success h2,
+.dark-mode .row .col-md-3 .card.bg-success h3,
+.dark-mode .row .col-md-3 .card.bg-success h4,
+.dark-mode .row .col-md-3 .card.bg-success h5,
+.dark-mode .row .col-md-3 .card.bg-success h6,
+.dark-mode .row .col-md-3 .card.bg-info h1,
+.dark-mode .row .col-md-3 .card.bg-info h2,
+.dark-mode .row .col-md-3 .card.bg-info h3,
+.dark-mode .row .col-md-3 .card.bg-info h4,
+.dark-mode .row .col-md-3 .card.bg-info h5,
+.dark-mode .row .col-md-3 .card.bg-info h6,
+.dark-mode .row .col-md-3 .card.bg-warning h1,
+.dark-mode .row .col-md-3 .card.bg-warning h2,
+.dark-mode .row .col-md-3 .card.bg-warning h3,
+.dark-mode .row .col-md-3 .card.bg-warning h4,
+.dark-mode .row .col-md-3 .card.bg-warning h5,
+.dark-mode .row .col-md-3 .card.bg-warning h6,
+.dark-mode .row .col-md-4 .card.bg-primary h1,
+.dark-mode .row .col-md-4 .card.bg-primary h2,
+.dark-mode .row .col-md-4 .card.bg-primary h3,
+.dark-mode .row .col-md-4 .card.bg-primary h4,
+.dark-mode .row .col-md-4 .card.bg-primary h5,
+.dark-mode .row .col-md-4 .card.bg-primary h6,
+.dark-mode .row .col-md-4 .card.bg-success h1,
+.dark-mode .row .col-md-4 .card.bg-success h2,
+.dark-mode .row .col-md-4 .card.bg-success h3,
+.dark-mode .row .col-md-4 .card.bg-success h4,
+.dark-mode .row .col-md-4 .card.bg-success h5,
+.dark-mode .row .col-md-4 .card.bg-success h6,
+.dark-mode .row .col-md-4 .card.bg-info h1,
+.dark-mode .row .col-md-4 .card.bg-info h2,
+.dark-mode .row .col-md-4 .card.bg-info h3,
+.dark-mode .row .col-md-4 .card.bg-info h4,
+.dark-mode .row .col-md-4 .card.bg-info h5,
+.dark-mode .row .col-md-4 .card.bg-info h6,
+.dark-mode .row .col-md-4 .card.bg-warning h1,
+.dark-mode .row .col-md-4 .card.bg-warning h2,
+.dark-mode .row .col-md-4 .card.bg-warning h3,
+.dark-mode .row .col-md-4 .card.bg-warning h4,
+.dark-mode .row .col-md-4 .card.bg-warning h5,
+.dark-mode .row .col-md-4 .card.bg-warning h6,
+.dark-mode .card.bg-primary h1,
+.dark-mode .card.bg-primary h2,
+.dark-mode .card.bg-primary h3,
+.dark-mode .card.bg-primary h4,
+.dark-mode .card.bg-primary h5,
+.dark-mode .card.bg-primary h6,
+.dark-mode .card.bg-success h1,
+.dark-mode .card.bg-success h2,
+.dark-mode .card.bg-success h3,
+.dark-mode .card.bg-success h4,
+.dark-mode .card.bg-success h5,
+.dark-mode .card.bg-success h6,
+.dark-mode .card.bg-info h1,
+.dark-mode .card.bg-info h2,
+.dark-mode .card.bg-info h3,
+.dark-mode .card.bg-info h4,
+.dark-mode .card.bg-info h5,
+.dark-mode .card.bg-info h6,
+.dark-mode .card.bg-warning h1,
+.dark-mode .card.bg-warning h2,
+.dark-mode .card.bg-warning h3,
+.dark-mode .card.bg-warning h4,
+.dark-mode .card.bg-warning h5,
+.dark-mode .card.bg-warning h6 {
+    color: #fff !important;
+}
+
+.dark-mode .row .card.bg-primary .card-body,
+.dark-mode .row .card.bg-success .card-body,
+.dark-mode .row .card.bg-info .card-body,
+.dark-mode .row .card.bg-warning .card-body,
+.dark-mode .row .col-md-3 .card.bg-primary .card-body,
+.dark-mode .row .col-md-3 .card.bg-success .card-body,
+.dark-mode .row .col-md-3 .card.bg-info .card-body,
+.dark-mode .row .col-md-3 .card.bg-warning .card-body,
+.dark-mode .row .col-md-4 .card.bg-primary .card-body,
+.dark-mode .row .col-md-4 .card.bg-success .card-body,
+.dark-mode .row .col-md-4 .card.bg-info .card-body,
+.dark-mode .row .col-md-4 .card.bg-warning .card-body,
+.dark-mode .card.bg-primary .card-body,
+.dark-mode .card.bg-success .card-body,
+.dark-mode .card.bg-info .card-body,
+.dark-mode .card.bg-warning .card-body,
+.dark-mode .card.bg-danger .card-body {
+    color: #fff !important;
+    background-color: transparent !important;
+}
+
+.dark-mode .row .card.bg-primary .card-body *,
+.dark-mode .row .card.bg-success .card-body *,
+.dark-mode .row .card.bg-info .card-body *,
+.dark-mode .row .card.bg-warning .card-body *,
+.dark-mode .row .col-md-3 .card.bg-primary .card-body *,
+.dark-mode .row .col-md-3 .card.bg-success .card-body *,
+.dark-mode .row .col-md-3 .card.bg-info .card-body *,
+.dark-mode .row .col-md-3 .card.bg-warning .card-body *,
+.dark-mode .row .col-md-4 .card.bg-primary .card-body *,
+.dark-mode .row .col-md-4 .card.bg-success .card-body *,
+.dark-mode .row .col-md-4 .card.bg-info .card-body *,
+.dark-mode .row .col-md-4 .card.bg-warning .card-body *,
+.dark-mode .card.bg-primary .card-body *,
+.dark-mode .card.bg-success .card-body *,
+.dark-mode .card.bg-info .card-body *,
+.dark-mode .card.bg-warning .card-body *,
+.dark-mode .card.bg-danger .card-body *,
+.dark-mode .card.bg-secondary .card-body * {
+    color: #fff !important;
+}
+
+/* Override dark mode card color for colored cards */
+.dark-mode .card.bg-primary,
+.dark-mode .card.bg-success,
+.dark-mode .card.bg-info,
+.dark-mode .card.bg-warning,
+.dark-mode .card.bg-danger,
+.dark-mode .card.bg-secondary,
+.dark-mode .row .card.bg-primary,
+.dark-mode .row .card.bg-success,
+.dark-mode .row .card.bg-info,
+.dark-mode .row .card.bg-warning,
+.dark-mode .row .card.bg-danger,
+.dark-mode .row .card.bg-secondary {
+    color: #fff !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Исправление цвета для stats-card */
+.stats-card.bg-info,
+.stats-card.bg-info *,
+.stats-card.bg-info > a,
+.stats-card.bg-info .stats-value,
+.stats-card.bg-info .stats-title,
+.stats-card.bg-info .stats-icon,
+.stats-card.bg-info i {
+    color: #fff !important;
+}
+
+.stats-card.bg-warning,
+.stats-card.bg-warning *,
+.stats-card.bg-warning > a,
+.stats-card.bg-warning .stats-value,
+.stats-card.bg-warning .stats-title,
+.stats-card.bg-warning .stats-icon,
+.stats-card.bg-warning i,
+.stats-card.bg-warning .d-flex,
+.stats-card.bg-warning .d-flex * {
+    color: #fff!important;
+}
+
+.dark-mode .stats-card.bg-info,
+.dark-mode .stats-card.bg-info *,
+.dark-mode .stats-card.bg-info > a,
+.dark-mode .stats-card.bg-info .stats-value,
+.dark-mode .stats-card.bg-info .stats-title,
+.dark-mode .stats-card.bg-info .stats-icon,
+.dark-mode .stats-card.bg-info i {
+    color: #fff !important;
+}
+
+.dark-mode .stats-card.bg-warning,
+.dark-mode .stats-card.bg-warning *,
+.dark-mode .stats-card.bg-warning > a,
+.dark-mode .stats-card.bg-warning .stats-value,
+.dark-mode .stats-card.bg-warning .stats-title,
+.dark-mode .stats-card.bg-warning .stats-icon,
+.dark-mode .stats-card.bg-warning i,
+.dark-mode .stats-card.bg-warning .d-flex,
+.dark-mode .stats-card.bg-warning .d-flex * {
+    color: #fff !important;
+}
+
