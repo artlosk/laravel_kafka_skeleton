@@ -430,18 +430,61 @@ docker logs -f kafka-zookeeper | grep ERROR
 ./vendor/bin/sail artisan queue:work kafka --queue=notifications &
 ```
 
-2. **Используйте Supervisor** для автозапуска воркеров:
+2. **Используйте Supervisor** для автозапуска воркеров (уже настроено, но отключено по умолчанию):
 
-```ini
-[program:laravel-worker]
-process_name=%(program_name)s_%(process_num)02d
-command=php /var/www/html/artisan queue:work kafka --sleep=3 --tries=3
-autostart=true
-autorestart=true
-user=sail
-numprocs=4
-redirect_stderr=true
-stdout_logfile=/var/www/html/storage/logs/worker.log
+Воркеры настроены через supervisord и могут быть включены через переменную окружения `QUEUE_WORKER_ENABLED`.
+
+**Для локальной разработки (воркеры отключены):**
+```bash
+# Воркеры отключены по умолчанию
+# Запускайте вручную при необходимости:
+./vendor/bin/sail artisan queue:work kafka
+```
+
+**Для production (включить воркеры через supervisord):**
+
+1. Раскомментируйте строку в `docker-compose.yml`:
+```yaml
+environment:
+    # ...
+    QUEUE_WORKER_ENABLED: '${QUEUE_WORKER_ENABLED:-false}'
+```
+
+2. Добавьте в `.env`:
+```env
+QUEUE_WORKER_ENABLED=true
+```
+
+3. Пересоберите и перезапустите контейнер:
+```bash
+./vendor/bin/sail build --no-cache
+./vendor/bin/sail up -d
+```
+
+4. Проверьте статус воркеров:
+```bash
+docker exec -it kafka-app supervisorctl status
+```
+
+**Конфигурация воркеров** находится в `docker/8.4/laravel-worker.conf`:
+- 4 процесса воркеров (`numprocs=4`)
+- Автоматический перезапуск при падении
+- Логи в `storage/logs/worker.log`
+- Перезапуск воркера после 1000 задач (защита от утечек памяти)
+
+**Управление воркерами:**
+```bash
+# Статус всех процессов
+docker exec -it kafka-app supervisorctl status
+
+# Перезапустить воркеры
+docker exec -it kafka-app supervisorctl restart laravel-worker:*
+
+# Остановить воркеры
+docker exec -it kafka-app supervisorctl stop laravel-worker:*
+
+# Запустить воркеры
+docker exec -it kafka-app supervisorctl start laravel-worker:*
 ```
 
 3. **Настройте партиции** для параллельной обработки:

@@ -15,6 +15,19 @@ fi
 
 chmod -R ugo+rw /.composer
 
+# Условное включение воркеров очереди через переменную окружения QUEUE_WORKER_ENABLED
+if [ "$QUEUE_WORKER_ENABLED" = "true" ]; then
+    echo "Queue workers enabled - activating laravel-worker.conf"
+    if [ -f /etc/supervisor/conf.d/laravel-worker.conf.disabled ]; then
+        mv /etc/supervisor/conf.d/laravel-worker.conf.disabled /etc/supervisor/conf.d/laravel-worker.conf
+    fi
+else
+    echo "Queue workers disabled - deactivating laravel-worker.conf"
+    if [ -f /etc/supervisor/conf.d/laravel-worker.conf ]; then
+        mv /etc/supervisor/conf.d/laravel-worker.conf /etc/supervisor/conf.d/laravel-worker.conf.disabled
+    fi
+fi
+
 if [ $# -gt 0 ]; then
     if [ "$SUPERVISOR_PHP_USER" = "root" ]; then
         exec "$@"

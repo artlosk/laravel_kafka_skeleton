@@ -21,7 +21,6 @@ class AppServiceProvider extends ServiceProvider
         \Illuminate\Pagination\Paginator::defaultSimpleView('pagination::simple-bootstrap-5');
         \Illuminate\Support\Facades\App::setLocale('ru');
 
-        // Регистрация коннектора Kafka
         Queue::extend('kafka', function () {
             return new KafkaConnector();
         });
