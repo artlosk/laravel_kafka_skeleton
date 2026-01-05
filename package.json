@@ -26,6 +26,7 @@
         "filepond-plugin-image-preview": "^4.6.12",
         "jquery": "^3.7.1",
         "popper.js": "^1.16.1",
+        "select2": "^4.1.0-rc.0",
         "sortablejs": "^1.15.6",
         "toastr": "^2.1.4"
     }

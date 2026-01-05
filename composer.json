@@ -10,6 +10,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "enqueue/rdkafka": "^0.10.27",
         "jeroennoten/laravel-adminlte": "dev-dev-v4",
         "laravel/framework": "^12.0",
         "laravel/sanctum": "^4.1",

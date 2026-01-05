@@ -340,6 +340,113 @@ select option {
     box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;
 }
 
+/* Select2 Multiple Styles */
+.select2-container .select2-selection--multiple {
+    min-height: 48px !important;
+    border: 2px solid #e9ecef !important;
+    border-radius: 8px !important;
+    background-color: #fff !important;
+    padding: 6px 8px !important;
+}
+
+.select2-container--default.select2-container--focus .select2-selection--multiple {
+    border-color: #3B82F6 !important;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;
+    outline: none !important;
+}
+
+/* Fix for default Select2 focus ring if it differs */
+.select2-container--default.select2-container--open .select2-selection--multiple {
+    border-color: #3B82F6 !important;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;
+}
+
+/* Ensure no other element overrides the border */
+.select2-container .select2-selection--multiple:focus {
+    border-color: #3B82F6 !important;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;
+    outline: none !important;
+}
+
+.select2-container .select2-selection--multiple .select2-selection__rendered {
+    padding: 0 !important;
+    margin: 0 !important;
+    line-height: normal !important;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+    background-color: #eff6ff !important;
+    border: 1px solid #bfdbfe !important;
+    border-radius: 6px !important;
+    padding: 4px 8px !important;
+    margin-right: 8px !important;
+    margin-top: 4px !important;
+    color: #1e40af !important;
+    font-size: 0.875rem !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    flex-direction: row-reverse !important;
+    /* Put X at the end if desired, but standard is usually start. Let's check standard. Standard DOM is X then Text. If we want X at start, normal flow. If user says overlap, flex is safer. */
+}
+
+/* 
+   Standard Select2 structure: <span class="remove"></span> Text 
+   If we use flexbox, they sit side by side. 
+*/
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+    display: inline-flex !important;
+    align-items: center !important;
+    padding-left: 28px !important;
+    /* Space for the absolute positioned remove icon if we go that route, OR just use relative positioning */
+    position: relative !important;
+}
+
+/* Let's try a safer flex approach without absolute positioning first */
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+    display: inline-flex !important;
+    align-items: center !important;
+    background-color: #eff6ff !important;
+    border: 1px solid #bfdbfe !important;
+    border-radius: 6px !important;
+    padding: 2px 8px !important;
+    margin-right: 6px !important;
+    margin-top: 5px !important;
+    color: #1e40af !important;
+    font-size: 0.875rem !important;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+    position: static !important;
+    /* Reset layout */
+    color: #1e40af !important;
+    margin-right: 8px !important;
+    border-right: 1px solid #bfdbfe !important;
+    padding-right: 8px !important;
+    font-weight: bold !important;
+    float: none !important;
+    /* Disable float */
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove:hover {
+    color: #1d4ed8 !important;
+    background-color: transparent !important;
+    /* Avoid full block hover bg if it looks weird */
+}
+
+.select2-container .select2-search--inline .select2-search__field {
+    margin-top: 6px !important;
+    margin-left: 6px !important;
+    font-size: 0.9rem !important;
+    color: #374151 !important;
+    box-shadow: none !important;
+}
+
+.select2-container .select2-search--inline .select2-search__field:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
 /* Dropdown стили для Select2 */
 .select2-dropdown {
     border: 2px solid #e9ecef !important;
@@ -489,7 +596,7 @@ select option {
 
 .stats-card.bg-info,
 .stats-card.bg-info *,
-.stats-card.bg-info > a,
+.stats-card.bg-info>a,
 .stats-card.bg-info .stats-value,
 .stats-card.bg-info .stats-title,
 .stats-card.bg-info .stats-icon,
@@ -499,7 +606,7 @@ select option {
 
 .stats-card.bg-warning,
 .stats-card.bg-warning *,
-.stats-card.bg-warning > a,
+.stats-card.bg-warning>a,
 .stats-card.bg-warning .stats-value,
 .stats-card.bg-warning .stats-title,
 .stats-card.bg-warning .stats-icon,
@@ -521,12 +628,12 @@ nav.d-flex.justify-content-between {
 }
 
 /* Мобильная версия - скрываем */
-nav.d-flex.justify-content-between > .d-flex.d-sm-none {
+nav.d-flex.justify-content-between>.d-flex.d-sm-none {
     display: none !important;
 }
 
 /* Десктоп версия - переопределяем justify-content-between на центрирование */
-nav.d-flex.justify-content-between > .d-none.d-sm-flex {
+nav.d-flex.justify-content-between>.d-none.d-sm-flex {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
@@ -537,18 +644,18 @@ nav.d-flex.justify-content-between > .d-none.d-sm-flex {
 }
 
 /* Отменяем flex-sm-fill для центрирования */
-nav.d-flex.justify-content-between > .d-none.d-sm-flex.flex-sm-fill {
+nav.d-flex.justify-content-between>.d-none.d-sm-flex.flex-sm-fill {
     flex: 0 0 auto !important;
 }
 
 /* Текст "Showing X to Y of Z results" - центрируем */
-nav.d-flex.justify-content-between > .d-none.d-sm-flex > div:first-child {
+nav.d-flex.justify-content-between>.d-none.d-sm-flex>div:first-child {
     text-align: center;
     order: 2;
 }
 
 /* Блок с кнопками пагинации - центрируем */
-nav.d-flex.justify-content-between > .d-none.d-sm-flex > div:last-child {
+nav.d-flex.justify-content-between>.d-none.d-sm-flex>div:last-child {
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
@@ -572,8 +679,8 @@ nav .pagination,
     width: auto !important;
 }
 
-nav .pagination > li,
-.pagination > li,
+nav .pagination>li,
+.pagination>li,
 nav .pagination .page-item,
 .pagination .page-item {
     margin: 0 !important;
@@ -585,11 +692,11 @@ nav .pagination .page-item,
     height: auto !important;
 }
 
-.pagination > li > a,
-.pagination > li > span,
+.pagination>li>a,
+.pagination>li>span,
 .pagination .page-item .page-link,
-nav .pagination > li > a,
-nav .pagination > li > span,
+nav .pagination>li>a,
+nav .pagination>li>span,
 nav .pagination .page-item .page-link {
     position: relative;
     display: block !important;
@@ -609,8 +716,8 @@ nav .pagination .page-item .page-link {
     white-space: nowrap;
 }
 
-.pagination > li > a:hover,
-.pagination > li > span:hover,
+.pagination>li>a:hover,
+.pagination>li>span:hover,
 .pagination .page-item .page-link:hover {
     z-index: 2;
     color: #1D4ED8;
@@ -620,8 +727,8 @@ nav .pagination .page-item .page-link {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.pagination > li.active > a,
-.pagination > li.active > span,
+.pagination>li.active>a,
+.pagination>li.active>span,
 .pagination .page-item.active .page-link {
     z-index: 3;
     color: #fff;
@@ -630,8 +737,8 @@ nav .pagination .page-item .page-link {
     box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
 }
 
-.pagination > li.disabled > a,
-.pagination > li.disabled > span,
+.pagination>li.disabled>a,
+.pagination>li.disabled>span,
 .pagination .page-item.disabled .page-link {
     color: #6c757d;
     pointer-events: none;
@@ -641,18 +748,17 @@ nav .pagination .page-item .page-link {
     opacity: 0.5;
 }
 
-.pagination > li:first-child > a,
-.pagination > li:first-child > span,
+.pagination>li:first-child>a,
+.pagination>li:first-child>span,
 .pagination .page-item:first-child .page-link {
     margin-left: 0;
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
 }
 
-.pagination > li:last-child > a,
-.pagination > li:last-child > span,
+.pagination>li:last-child>a,
+.pagination>li:last-child>span,
 .pagination .page-item:last-child .page-link {
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
 }
-

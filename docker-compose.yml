@@ -1,12 +1,12 @@
 services:
     laravel.test:
-        container_name: laravel-app
+        container_name: kafka-app
         build:
-            context: './vendor/laravel/sail/runtimes/8.4'
+            context: './docker/8.4'
             dockerfile: Dockerfile
             args:
                 WWWGROUP: '${WWWGROUP}'
-        image: 'sail-8.4/app'
+        image: 'sail-8.4/app-kafka'
         extra_hosts:
             - 'host.docker.internal:host-gateway'
         ports:
@@ -25,8 +25,10 @@ services:
         depends_on:
             - mysql
             - redis
+            - kafka
+            - kafka-ui
     mysql:
-        container_name: laravel-mysql
+        container_name: kafka-mysql
         image: 'mysql:8.0'
         ports:
             - '${FORWARD_DB_PORT:-3306}:3306'
@@ -51,7 +53,7 @@ services:
             retries: 3
             timeout: 5s
     redis:
-        container_name: laravel-redis
+        container_name: kafka-redis
         image: 'redis:alpine'
         ports:
             - '${FORWARD_REDIS_PORT:-6379}:6379'
@@ -66,6 +68,62 @@ services:
                 - ping
             retries: 3
             timeout: 5s
+    kafka:
+        container_name: kafka-kafka
+        image: 'confluentinc/cp-kafka:7.5.0'
+        ports:
+            - '${FORWARD_KAFKA_PORT:-9092}:9092'
+        environment:
+            KAFKA_BROKER_ID: 1
+            KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+            KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092,PLAINTEXT_HOST://localhost:9092
+            KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+            KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+            KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+            KAFKA_AUTO_CREATE_TOPICS_ENABLE: 'true'
+        depends_on:
+            - zookeeper
+        networks:
+            - sail
+        healthcheck:
+            test: ["CMD-SHELL", "kafka-broker-api-versions --bootstrap-server localhost:9092 || exit 1"]
+            interval: 30s
+            timeout: 10s
+            retries: 5
+    zookeeper:
+        container_name: kafka-zookeeper
+        image: 'confluentinc/cp-zookeeper:latest'
+        ports:
+            - '${FORWARD_ZOOKEEPER_PORT:-2181}:2181'
+        environment:
+            ZOOKEEPER_CLIENT_PORT: 2181
+            ZOOKEEPER_TICK_TIME: 2000
+        networks:
+            - sail
+        healthcheck:
+            test: ["CMD-SHELL", "nc -z localhost 2181 || exit 1"]
+            interval: 30s
+            timeout: 10s
+            retries: 5
+    kafka-ui:
+        container_name: kafka-ui
+        image: 'provectuslabs/kafka-ui:latest'
+        ports:
+            - '${FORWARD_KAFKA_UI_PORT:-8080}:8080'
+        environment:
+            KAFKA_CLUSTERS_0_NAME: local
+            KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:29092
+            KAFKA_CLUSTERS_0_ZOOKEEPER: zookeeper:2181
+        depends_on:
+            - kafka
+            - zookeeper
+        networks:
+            - sail
+        healthcheck:
+            test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://localhost:8080/actuator/health || exit 1"]
+            interval: 30s
+            timeout: 10s
+            retries: 5
 networks:
     sail:
         driver: bridge

@@ -72,6 +72,16 @@ return [
             'after_commit' => false,
         ],
 
+        'kafka' => [
+            'driver' => 'kafka',
+            'brokers' => env('KAFKA_BROKERS', 'kafka:29092'),
+            'queue' => env('KAFKA_QUEUE', 'default'),
+            'topic' => env('KAFKA_TOPIC', 'notifications'),
+            'consumer_group' => env('KAFKA_CONSUMER_GROUP', 'laravel-consumer'),
+            'retry_after' => (int) env('KAFKA_QUEUE_RETRY_AFTER', 90),
+            'after_commit' => false,
+        ],
+
     ],
 
     /*

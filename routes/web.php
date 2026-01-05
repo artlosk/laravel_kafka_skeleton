@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Backend\PostController as BackendPostController;
+use App\Http\Controllers\Backend\PostNotificationSettingController;
 use App\Http\Controllers\Backend\RolePermissionController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Frontend\DashboardController;
@@ -121,4 +122,14 @@ Route::middleware(['auth', 'permission:access-admin-panel'])->prefix('admin')->g
 
     Route::post('filepond/upload', [App\Http\Controllers\Backend\MediaController::class, 'uploadFilepond'])->name('backend.filepond.upload');
     Route::delete('filepond/delete', [App\Http\Controllers\Backend\MediaController::class, 'deleteFilepond'])->name('backend.filepond.delete');
+
+    Route::prefix('post-notification-settings')->name('backend.post-notification-settings.')->group(function () {
+        Route::get('/', [PostNotificationSettingController::class, 'index'])->name('index');
+        Route::get('/create', [PostNotificationSettingController::class, 'create'])->name('create');
+        Route::post('/', [PostNotificationSettingController::class, 'store'])->name('store');
+        Route::get('/{postNotificationSetting}/edit', [PostNotificationSettingController::class, 'edit'])->name('edit');
+        Route::put('/{postNotificationSetting}', [PostNotificationSettingController::class, 'update'])->name('update');
+        Route::delete('/{postNotificationSetting}', [PostNotificationSettingController::class, 'destroy'])->name('destroy');
+        Route::patch('/{postNotificationSetting}/toggle-active', [PostNotificationSettingController::class, 'toggleActive'])->name('toggle-active');
+    });
 });

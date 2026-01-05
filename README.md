@@ -8,6 +8,7 @@
 - Laravel 12.0
 - MySQL 8.0
 - Redis
+- Apache Kafka
 - Docker (Laravel Sail)
 
 ## Основные компоненты
@@ -48,6 +49,41 @@ REST API с аутентификацией через Laravel Sanctum:
 - Управление токенами через административную панель
 - Готовые endpoints для работы с постами
 - Policy-based авторизация
+
+### Система уведомлений
+
+Автоматические email-уведомления о новых постах через Kafka:
+
+**Возможности:**
+- Мультиселект ролей и пользователей (можно выбрать несколько за раз)
+- Асинхронная отправка через очередь Kafka
+- Управление через административную панель
+- Сохранение писем в файлы (`storage/app/private/emails/`) для разработки
+- Поддержка реальной отправки email для production
+
+**Быстрый старт:**
+
+1. Настройте `.env`:
+```env
+QUEUE_CONNECTION=kafka
+MAIL_MAILER=file  # для dev, или smtp для production
+```
+
+2. Запустите воркер:
+```bash
+./vendor/bin/sail artisan queue:work kafka --queue=notifications --tries=3 --timeout=60
+```
+
+3. В админ-панели перейдите в **"Уведомления о постах"** и настройте получателей
+
+4. При создании поста уведомления автоматически отправятся в очередь
+
+5. Проверьте письма:
+```bash
+./vendor/bin/sail exec kafka-app ls -lah storage/app/private/emails/
+# Просмотреть письмо:
+./vendor/bin/sail exec kafka-app cat storage/app/private/emails/имя_файла.html
+```
 
 ## Установка
 
@@ -121,6 +157,29 @@ docker run --rm \
 - Пароль: `admin123`
 
 При первом запуске сидера в консоли будет выведен API токен для администратора.
+
+### Docker контейнеры
+
+После запуска будут доступны следующие контейнеры:
+- `kafka-app` - Laravel приложение (порт 80)
+- `kafka-mysql` - MySQL база данных (порт 3306)
+- `kafka-redis` - Redis (порт 6379)
+- `kafka-kafka` - Apache Kafka (порт 9092)
+- `kafka-zookeeper` - Zookeeper для Kafka (порт 2181)
+- `kafka-ui` - Kafka UI веб-интерфейс (порт 8080)
+
+### Kafka UI
+
+Веб-интерфейс для управления Kafka: `http://localhost:8080`
+
+**Возможности:**
+- Просмотр топиков и сообщений
+- Мониторинг групп потребителей
+- Управление топиками
+- Просмотр метрик и статистики
+- Отправка тестовых сообщений
+
+**Подробная документация**: [KAFKA_GUIDE.md](KAFKA_GUIDE.md)
 
 ## Структура проекта
 
@@ -214,7 +273,7 @@ docker run --rm \
 Или напрямую через Docker:
 
 ```bash
-docker exec -it laravel_sceleton-laravel.test-1 bash
+docker exec -it kafka-app bash
 ```
 
 ## Конфигурация
@@ -236,6 +295,42 @@ docker exec -it laravel_sceleton-laravel.test-1 bash
 ### Права доступа
 
 Конфигурация системы прав находится в `config/permission.php`. По умолчанию используется guard `web` без поддержки команд.
+
+### Kafka и очереди
+
+Конфигурация очередей находится в `config/queue.php`. Для использования Kafka:
+
+1. Установите пакет:
+```bash
+./vendor/bin/sail composer require enqueue/rdkafka
+# или
+./vendor/bin/sail composer require nmred/kafka-php
+```
+
+2. Настройте `.env`:
+```env
+QUEUE_CONNECTION=kafka
+KAFKA_BROKERS=kafka:29092
+KAFKA_QUEUE=default
+KAFKA_TOPIC=notifications
+KAFKA_CONSUMER_GROUP=laravel-consumer
+```
+
+3. Запустите воркер:
+```bash
+./vendor/bin/sail artisan queue:work kafka --queue=notifications --tries=3 --timeout=60
+```
+
+4. Просмотр писем (для разработки):
+```bash
+# Список писем
+./vendor/bin/sail exec kafka-app ls -lah storage/app/private/emails/
+
+# Просмотр письма
+./vendor/bin/sail exec kafka-app cat storage/app/private/emails/имя_файла.html
+```
+
+Подробная документация: [KAFKA_GUIDE.md](KAFKA_GUIDE.md)
 
 ## API
 

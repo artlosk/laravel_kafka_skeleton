@@ -5,6 +5,7 @@ import 'admin-lte';
 import './darkMode';
 import {initDateInputs} from './dateInput';
 import './users';
+import './post-notification-settings';
 
 initDateInputs();
 

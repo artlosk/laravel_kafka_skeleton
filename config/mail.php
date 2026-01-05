@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'default' => env('MAIL_MAILER', 'log'),
+    'default' => env('MAIL_MAILER', 'file'),
 
     /*
     |--------------------------------------------------------------------------
@@ -95,6 +95,11 @@ return [
                 'postmark',
             ],
             'retry_after' => 60,
+        ],
+
+        'file' => [
+            'transport' => 'file',
+            'path' => storage_path('app/private/emails'),
         ],
 
     ],

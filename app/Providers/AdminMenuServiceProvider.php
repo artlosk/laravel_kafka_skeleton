@@ -46,6 +46,16 @@ class AdminMenuServiceProvider extends ServiceProvider
                 'permissions' => ['view-media'],
             ],
 
+            // Уведомления о постах
+            [
+                'text' => 'Уведомления о постах',
+                'route' => 'backend.post-notification-settings.index',
+                'icon' => 'fas fa-bell',
+                'label' => \App\Models\PostNotificationSetting::count(),
+                'label_color' => 'success',
+                'permissions' => ['access-admin-panel'],
+            ],
+
             // Администрирование (только для админов)
             [
                 'text' => 'Администрирование',
