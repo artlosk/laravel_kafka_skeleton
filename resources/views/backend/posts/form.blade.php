@@ -91,7 +91,7 @@
                     <label class="form-label">
                         <i class="fas fa-images mr-1"></i> Медиафайлы
                     </label>
-                    <x-media-gallery name="media" :initialMedia="$post->relatedMedia ?? []"/>
+                    <x-backend.media-gallery name="media" :initialMedia="$post->relatedMedia ?? []"/>
                     @error('media.*')
                     <div class="text-danger mt-2">
                         <i class="fas fa-exclamation-triangle mr-1"></i>

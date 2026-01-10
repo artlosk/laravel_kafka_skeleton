@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Illuminate\Support\Facades\Storage;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Illuminate\Database\Eloquent\Model;
 
 class MediaController extends Controller
 {
@@ -26,17 +29,25 @@ class MediaController extends Controller
             $uploadedFiles = [];
 
             if ($request->hasFile('files')) {
-                $tempModel = new class extends \Illuminate\Database\Eloquent\Model {
-                    use \Spatie\MediaLibrary\HasMedia;
-                    use \Spatie\MediaLibrary\InteractsWithMedia;
+                $tempModel = new class extends Model implements HasMedia {
+                    use InteractsWithMedia;
+                    
+                    protected $table = 'temp_media';
                 };
 
                 foreach ($request->file('files') as $file) {
                     $media = $tempModel
-                        ->addMediaFromRequest('files')
+                        ->addMedia($file)
                         ->toMediaCollection('default');
 
-                    $uploadedFiles[] = $media;
+                    $uploadedFiles[] = [
+                        'id' => $media->id,
+                        'name' => $media->name,
+                        'file_name' => $media->file_name,
+                        'url' => $media->getUrl(),
+                        'url_thumb' => $media->hasGeneratedConversion('thumb') ? $media->getUrl('thumb') : null,
+                        'mime_type' => $media->mime_type,
+                    ];
                 }
             }
 
@@ -77,11 +88,6 @@ class MediaController extends Controller
         }
 
         $mediaItems = Media::whereIn('id', $validIds)
-            ->whereIn('id', function ($query) {
-                $query->select('media_id')
-                    ->from('media_relation_entity')
-                    ->where('entity_type', 'App\\Models\\Post');
-            })
             ->orderByRaw('FIELD(id, ' . implode(',', $validIds) . ')')
             ->get();
 

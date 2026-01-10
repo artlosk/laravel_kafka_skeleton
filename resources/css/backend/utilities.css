@@ -2,7 +2,6 @@
    Utilities - Animations, Transitions, Scrollbar, Media Queries, Shadows
    ======================================== */
 
-/* Loading Animations */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -18,12 +17,14 @@
     animation: fadeInUp 0.6s ease-out;
 }
 
-/* Smooth Transitions */
-* {
-    transition: all 0.3s ease;
+.modal {
+    transition: opacity 0.15s linear;
 }
 
-/* Custom Scrollbar */
+.modal-backdrop {
+    transition: opacity 0.15s linear;
+}
+
 ::-webkit-scrollbar {
     width: 8px;
 }
@@ -42,7 +43,6 @@
     background: linear-gradient(135deg, #1D4ED8 0%, #1E40AF 100%);
 }
 
-/* Mobile Responsiveness */
 @media (max-width: 768px) {
     .sidebar {
         transform: translateX(-100%);
@@ -62,15 +62,12 @@
     }
 }
 
-/* Enhanced Focus States */
 .btn:focus,
 .form-control:focus,
 .nav-link:focus {
     outline: none;
     box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
-
-/* Professional Shadows */
 .shadow-sm {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }

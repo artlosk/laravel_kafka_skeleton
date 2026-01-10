@@ -482,7 +482,7 @@ return [
             ],
         ],
         'Highcharts' => [
-            'active' => true,
+            'active' => false,
             'files' => [
                 [
                     'type' => 'js',

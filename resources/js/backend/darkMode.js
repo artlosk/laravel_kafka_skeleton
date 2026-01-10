@@ -58,8 +58,21 @@ function updateDarkModeButtonState() {
 
 window.updateDarkModeButtonState = updateDarkModeButtonState;
 
-if (document.body) {
-    initDarkMode();
-} else {
+
+(function() {
+    const savedDarkMode = localStorage.getItem('darkMode');
+    if (savedDarkMode === 'true') {
+        if (document.documentElement) {
+            document.documentElement.classList.add('dark-mode');
+        }
+        if (document.body) {
+            document.body.classList.add('dark-mode');
+        }
+    }
+})();
+
+if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initDarkMode);
+} else {
+    initDarkMode();
 }

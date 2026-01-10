@@ -10,7 +10,6 @@ export default defineConfig({
                 'resources/css/backend/admin-custom.css',
                 'resources/js/backend/admin.js',
                 'resources/css/backend/media-gallery.css',
-                'resources/js/backend/media-gallery.js',
                 'resources/js/backend/admin-media.js'
             ],
             refresh: true,

@@ -1,7 +1,11 @@
-/* resources/css/media-gallery.css */
-@import 'https://unpkg.com/filepond/dist/filepond.css';
-@import 'https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css';
-@import 'https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css';
+.media-item.selected {
+    background-color: #e3f2fd;
+    border: 2px solid #2196f3;
+}
+
+.media-item.selected .card {
+    border-color: #2196f3;
+}
 
 .media-gallery-widget .media-preview-item {
     position: relative;
@@ -11,7 +15,7 @@
     position: absolute;
     top: -5px;
     right: -5px;
-    background: red;
+    background: #dc3545;
     color: white;
     border: none;
     border-radius: 50%;
@@ -19,16 +23,18 @@
     height: 20px;
     line-height: 20px;
     cursor: pointer;
+    font-size: 14px;
+    z-index: 10;
 }
 
-.media-gallery-widget .media-item.selected {
-    background-color: #e3f2fd;
+.media-gallery-widget .remove-btn:hover {
+    background: #c82333;
 }
 
-.media-gallery-widget .sortable-ghost {
+.sortable-ghost {
     opacity: 0.4;
 }
 
-.media-gallery-widget .sortable-chosen {
+.sortable-chosen {
     background-color: #f0f0f0;
 }

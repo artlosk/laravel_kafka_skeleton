@@ -3,20 +3,7 @@
 @section('title', 'Admin Panel')
 
 @section('css')
-    @vite(['resources/css/backend/admin.css', 'resources/css/backend/admin-custom.css'])
-    <script>
-        (function () {
-            const savedDarkMode = localStorage.getItem('darkMode');
-            if (savedDarkMode === 'true') {
-                if (document.documentElement && document.documentElement.classList) {
-                    document.documentElement.classList.add('dark-mode');
-                }
-                if (document.body && document.body.classList) {
-                    document.body.classList.add('dark-mode');
-                }
-            }
-        })();
-    </script>
+    @vite(['resources/css/backend/admin.css', 'resources/css/backend/admin-custom.css', 'resources/css/backend/media-gallery.css'])
 @stop
 
 @section('content_top_nav_right')
