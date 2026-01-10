@@ -1,26 +1,14 @@
-import select2 from 'select2';
-import 'select2/dist/css/select2.min.css';
+import { initSelect2, destroySelect2 as destroySelect2Util } from './select2-utils';
 
-select2($);
-
-function initSelect2() {
-    $('.select2').each(function() {
-        if (!$(this).hasClass('select2-hidden-accessible')) {
-            $(this).select2({
-                placeholder: 'Выберите...',
-                allowClear: true
-            });
-        }
+function initSelect2Local() {
+    initSelect2({
+        placeholder: 'Выберите...',
+        allowClear: true
     });
 }
 
 function destroySelect2(selectors) {
-    selectors.forEach(selector => {
-        const $el = $(selector);
-        if ($el.hasClass('select2-hidden-accessible')) {
-            $el.select2('destroy');
-        }
-    });
+    destroySelect2Util(selectors);
 }
 
 function handleNotifyTypeChange() {
@@ -44,7 +32,7 @@ function handleNotifyTypeChange() {
         $('#user_ids').prop('required', false);
     }
 
-    initSelect2();
+    initSelect2Local();
 }
 
 function initPostNotificationSettings() {
@@ -52,7 +40,7 @@ function initPostNotificationSettings() {
         return;
     }
 
-    initSelect2();
+    initSelect2Local();
     $('#notify_type').off('change', handleNotifyTypeChange).on('change', handleNotifyTypeChange);
     $('#notify_type').trigger('change');
 }

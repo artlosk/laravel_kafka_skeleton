@@ -83,6 +83,11 @@
 
 .btn-primary {
     background: linear-gradient(135deg, #3B82F6 0%, #1D4ED8 100%);
+    color: #fff !important;
+}
+
+.text-muted .btn-primary {
+    color: #fff !important;
 }
 
 .btn-success {
